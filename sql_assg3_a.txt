@@ -1,0 +1,54 @@
+CREATE TABLE Suppliers(
+Supp_id int primary key,
+Supp_name varchar2(30) NOT NULL,
+contact varchar2(10) NOT NULL,
+Address varchar2(50),
+City varchar2(20),
+pincode varchar2(6),
+Earning int
+);
+
+
+INSERT INTO Suppliers values (1,'Ankita','9044670000','NT-II armapur','Amritsar','208009',25000);
+
+INSERT INTO Suppliers values (3,'Anurag','9839780000','Vijay Nagar','Lucknow','234501',50000);
+
+INSERT INTO Suppliers values (2,'Anjali','9532890000','C 20 Model','Lucknow','226004',20000);
+
+INSERT INTO Suppliers values (6,'Rashmi','7522900000','2 Rajajipuram','Lucknow','208006',70000);
+
+INSERT INTO Suppliers values (5,'Sumit','7271000000','25 Mall Road','Delhi','226048',70000);
+
+INSERT INTO Suppliers values (4,'Harsh','7890120000','127/31 Royal','Kanpur','208005',90000);
+
+SELECT min(pincode) from Suppliers where Supp_name like 'A%' or Supp_name like 'a%'
+
+SELECT Supp_name from Suppliers where City = 'Lucknow' order by Contact
+
+SELECT COUNT(DISTINCT CITY) FROM Suppliers
+
+SELECT supp_id, Supp_name from Suppliers where pincode between '208005' and '234501';
+
+SELECT COUNT(Supp_id) from Suppliers where earning = 70000 or city = 'Lucknow'
+
+SELECT avg(earning) from Suppliers where Supp_name like '%i';
+
+SELECT COUNT(DISTINCT CITY) from suppliers where city is not null
+
+SELECT * from Suppliers where City = 'Delhi' and pincode='226048'
+
+SELECT SUM(earning) from Suppliers where Supp_name not like 'HARSH';
+
+SELECT Supp_name, Supp_id from Suppliers where Contact = '9044570000' or Contact = '9532890000' or Contact = '7890120000'
+
+SELECT Contact, Supp_name from Suppliers where earning>50000 and earning <90000
+
+SELECT MIN(Earning) from Suppliers where Supp_name like 'An%'
+
+SELECT count(Supp_id) as No_of_suppliers , avg(earning) as Average_Earnings from Suppliers
+
+SELECT address, contact from Suppliers where Supp_name not like 'H%' and Supp_name not like 'R%'
+
+SELECT City, Supp_name as "Supplier Name" from Suppliers where pincode != '208009' and city != 'Lucknow'
+
+SELECT COUNT(Supp_id) from suppliers
