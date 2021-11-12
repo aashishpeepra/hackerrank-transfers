@@ -1,0 +1,44 @@
+CREATE TABLE Vendors(
+Ven_id int primary key,
+Ven_name varchar2(30) not null,
+Contact varchar2(10) not null,
+Street varchar2(50),
+City varchar2(20),
+Salary int ,
+Dept_id varchar2(3)
+);
+
+insert into Vendors values (1,'Ratna','9044670000','Rajiv Chowk','Delhi',30000,'A01')
+
+insert into Vendors values (2,'Anjali','9839780000','Vijay Nagar','Kanpur',21000,'A01')
+
+insert into Vendors values (3,'Rahul','9532890000','Model Town','Delhi',35000,'B02')
+
+insert into Vendors values (4,'Ankit','7522900000','Rajajipuram','Lucknow',24500,'C03')
+
+insert into Vendors values (5,'Sumit','7271000000','Ramadevi','Kanpur',26000,'B02')
+
+insert into Vendors values (6,'Kapil','7890120000','Mall Road','Kanpur',27000,'C03')
+
+insert into Vendors values (7,'Abhinav','9984256311',NULL,'Lucknow',25000,'C03')
+
+insert into Vendors values (8,'Ankur','9865237411','Akbar Road','Delhi',20700,'B03')
+
+select dept_id, count(*) from Vendors group by dept_id
+
+select min(salary), max(salary), dept_id from Vendors group by dept_id
+
+select avg(salary), dept_id from Vendors group by dept_id having min(salary)>25000
+
+select count(*), dept_id from vendors where street is not null group by dept_id having min(salary)>=21000
+
+select max(salary) from vendors group by dept_id having count(*) >2
+
+select avg(salary) from Vendors group by dept_id having count(*) > 2
+
+select sum(salary) from Vendors where dept_id = 'A03' group by dept_id
+
+select city, count(*) from Vendors group by city
+
+
+
